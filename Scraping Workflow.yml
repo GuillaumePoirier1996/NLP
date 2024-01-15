@@ -1,0 +1,39 @@
+  # Definition de l'auteur
+  author:
+    name: "Guillaume"
+    occupation: "Data Scientist"
+    age: 27
+    gpa: 3.5
+    male: true
+    birthdate: 1996-05-17 # ISO 8602
+
+  # Exécuter toutes les 12 heures
+  on:
+    schedule:
+      - cron: '0 */12 * * *'
+
+  # Parametrage du workflow
+  jobs:
+    run_scraping:
+      runs-on: ubuntu-latest
+
+      steps:
+        # Nom
+        - name: Checkout repository
+          uses: actions/checkout@v2
+
+        # Kernel
+        - name: Set up Python
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.x
+
+        # Installation des dependances
+        - name: Install dependencies
+          run: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+
+        # Nom du fichier à executer
+        - name: Run scraping script
+          run: python your_scraping_script.py
