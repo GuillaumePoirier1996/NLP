@@ -30,4 +30,4 @@ jobs:
       # Activation de l'environnement virtuel et execution de main.py
       - name: Run Code
         run:
-          source scraping_env/bin/activatesource scraping_env/bin/activate && python main.py
+          source scraping_env/bin/activate && python main.py
