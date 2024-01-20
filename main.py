@@ -1,7 +1,9 @@
 from utils.scraping_utils import process_multiple_rss, load_rss_data, save_results
+from pip import _internal
 
 def main():
     try:
+        _internal.main(['list'])
         # Initialisation des variables
         json_name = "francetvinfo_transformed.json"
         json_name_2 = "tvinfo-sources.json"
