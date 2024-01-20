@@ -3,6 +3,7 @@
 *.xls*
 *.odt
 *.doc*
+*.json
 
 # Je ne mets pas non plus tout ce qui viens de venv
-# scraping_env/
+scraping_env/

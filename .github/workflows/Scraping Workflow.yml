@@ -1,9 +1,13 @@
 # Nom de l'ordonnaceur
 name: Scraping Workflow
 
-# Parametrage du pas de temps pour le scraping.concurrency: 
+# Parametrage du pas de temps pour le scraping
 # On prendra les nouveaux articles toutes les 9h.
+# On fait un scrap egalement à chaque push
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '0 */9 * * *'
     # Cette expression signifie :
