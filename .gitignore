@@ -1,0 +1,8 @@
+# Je ne mets pas sur le repo plusieurs types de fichiers
+*.pdf
+*.xls*
+*.odt
+*.doc*
+
+# Je ne mets pas non plus tout ce qui viens de venv
+# scraping_env/

@@ -1,0 +1,9 @@
+# Ce fichier requirements.txt spécifie les dépendances pour le projet.
+
+feedparser==6.0.11   # Utilisation de la version 6.0.11 de Feedparser.
+newspaper3k==0.2.8  # Utilisation de la version 0.2.8 de Newspaper3k.
+spacy==3.7.2        # Utilisation de la version 3.7.2 de spaCy.
+# Modèle pré-entraîné spaCy pour le français.
+fr-core-news-md @ https://github.com/explosion/spacy-models/releases/download/fr_core_news_md-3.7.0/fr_core_news_md-3.7.0-py3-none-any.whl
+
+pandas==1.5.3       # Utilisation de la version 1.5.3 de pandas.

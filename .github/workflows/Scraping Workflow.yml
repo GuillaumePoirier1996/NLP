@@ -1,0 +1,30 @@
+# Nom de l'ordonnaceur
+name: Scraping Workflow
+
+# Parametrage du pas de temps pour le scraping.concurrency: 
+# On prendra les nouveaux articles toutes les 9h.
+on:
+  schedule:
+    - cron: '0 */9 * * *'
+    # Cette expression signifie :
+    # Minute : 0 (c'est-à-dire au début de chaque heure)
+    # Heure : toutes les 9 heures (0, 9, 18, etc.)
+    # Jour du mois : chaque jour (1-31)
+    # Mois : chaque mois (1-12)
+    # Jour de la semaine : chaque jour de la semaine (0-6, où 0 est dimanche)
+
+# Parametrage du workflow
+jobs:
+  run_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clonage du dépôt GitHub dans l'environnement d'exécution où le workflow s'exécute.
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Activation de l'environnement virtuel et execution de main.py
+      - name: Run Code
+        run: |
+          source scraping_env/bin/activate
+          python main.py
