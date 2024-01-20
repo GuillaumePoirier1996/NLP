@@ -31,4 +31,5 @@ jobs:
       - name: Run Code
         run: |
           source scraping_env/bin/activate
+          echo $VIRTUAL_ENV
           python main.py
