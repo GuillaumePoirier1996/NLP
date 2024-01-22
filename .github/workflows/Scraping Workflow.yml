@@ -26,32 +26,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Instalation des dependances
-      - name: Install dependencies
+      # Installation des dependances
+      # Execution du main
+      # Configuration git
+      # Commit s'il y a des changements
+      - name: Scraping Workflow
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-  # Execution du scraping
-  run_code:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: Run Code
-        run: python main.py
-  
-  # Configuration des parametres git et commit si necessaire
-  commit_and_push:
-    runs-on: ubuntu-latest
-    needs: run_code
-    steps:
-      - name: Configure Git
-        run: |
+          python main.py
           git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
           git config --global user.name "${{ secrets.GIT_USER_NAME }}"
-      
-      - name: Check for changes
-        run: |
           if [ -n "$(git status --porcelain)" ]; then
             git add .
             git commit -m "Auto commit from GitHub Actions"
