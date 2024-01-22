@@ -37,8 +37,6 @@ jobs:
           python main.py
           git config --global user.email "guilaume.poirier1996@gmail.com"
           git config --global user.name "Guillaume Poirier"
-          git config user.name
-          git config user.email
           if [ -n "$(git status --porcelain)" ]; then
             git add .
             git commit -m "Auto commit from GitHub Actions"
